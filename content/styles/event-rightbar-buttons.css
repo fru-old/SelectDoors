@@ -1,0 +1,47 @@
+
+/**
+ * Round Buttons
+ */
+
+#round-buttons.extended [class^="icon-"]:before, 
+#round-buttons.extended [class*=" icon-"]:before {
+	-webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+#round-buttons .icon-cog {
+	background: #6a6a6a;
+  margin-right: -44px;/*10px;*/
+  opacity: 0;
+  transition: margin-right 0.3s ease-out, opacity 0.05s ease-out 0.25s;
+}
+
+#round-buttons.extended .icon-cog {
+  margin-right: 10px;
+  opacity: 1;
+  transition: margin-right 0.3s ease-out, opacity 0.05s ease-out 0;
+}
+
+#round-buttons .icon-cancel {
+	background: #e51c23;
+}
+
+#round-buttons [class^="icon-"]:before, 
+#round-buttons [class*=" icon-"]:before {
+  transition: all 0.3s ease-out;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#round-buttons [class^="icon-"], 
+#round-buttons [class*=" icon-"]{
+  color:#fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.36), 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+}
+
+#round-buttons {
+  position: fixed;
+  right: 31px;
+  top: 5px;
+  z-index: 10;
+}

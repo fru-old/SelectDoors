@@ -1,0 +1,114 @@
+<script type="text/javascript" src="./content/libraries/jquery.js"></script>
+<script type="text/javascript" src="./content/libraries/angular.js"></script>
+<script type="text/javascript" src="./content/libraries/waves.js"></script>
+
+<link rel="stylesheet" href="./content/styles/global.css" />
+<link rel="stylesheet" href="./content/styles/layout.css" />
+
+<link rel="stylesheet" href="./content/styles/event-rightbar.css" />
+<link rel="stylesheet" href="./content/styles/event-rightbar-buttons.css" />
+<link rel="stylesheet" href="./content/styles/fontello-icons.css" />
+<link rel="stylesheet" href="./content/styles/waves.css" />
+
+<div id="event-bar" class="unselectable">	
+	<div class="card">
+		<span>Open: www.xyz.com</span>
+		<div class="content waves-effect">
+			<img src="./content/images/examples/full_screen.jpg"></img>
+		</div>
+	</div>
+
+	<div class="card">
+		<span>Click</span>
+		<div class="content waves-effect">
+			<img src="./content/images/examples/search_field.jpg"></img>
+		</div>
+	</div>
+
+	<div class="card">
+		<span>Type "xyz..."</span>
+		<div class="content waves-effect"></div>
+	</div>
+
+	<div class="card">
+		<span>Click</span>
+		<div class="content waves-effect">
+			<img src="./content/images/examples/search_button.jpg"></img>
+		</div>
+	</div>
+
+	<div class="card">
+		<span>Click</span>
+		<div class="content waves-effect">
+			<img src="./content/images/examples/signup_button.jpg"></img>
+		</div>
+	</div>
+
+	<span id="round-buttons">
+		<span class="icon-cog waves-effect waves-circle"></span>
+		<span class="icon-cancel waves-effect waves-circle"></span>
+	</span>
+
+	<input class="focus"></input>
+</div>
+
+<script type="text/javascript">
+
+	function updateButtons(){
+		var hasSelected = $('#event-bar .card.selected').length > 0;
+		$('#round-buttons').toggleClass('extended', hasSelected);
+	}
+
+	var cancelUnfocus = true;
+	
+	$('#event-bar').on('click', '.card', function(evt){
+		cancelUnfocus = true;
+		/*if(!evt.ctrlKey && !evt.shiftKey){
+			$('#event-bar .card').not(this).toggleClass('selected', false);
+		}*/
+		$(this).toggleClass('selected', true);
+		if($(this).hasClass('selected') && !$('#event-bar .focus').is(':focus')){
+			$('#event-bar .focus').focus();
+		}
+		updateButtons();
+	});
+
+	$('#event-bar').on('click', '#round-buttons.extended .icon-cancel', function(){
+		cancelUnfocus = true;
+		$('#event-bar .card.selected').slideUp(200, function(){
+			this.remove();
+			updateButtons();
+		});
+	});
+
+	$('#event-bar').on('click', '#round-buttons.extended .icon-cog', function(){
+		cancelUnfocus = true;
+	});
+
+	$('#event-bar .focus').on('focusout', function(evt){
+		console.log(document.activeElement);
+		cancelUnfocus = false;
+		setTimeout(function(){
+			if(cancelUnfocus)return;
+			$('#event-bar .card').toggleClass('selected', false);
+			updateButtons();
+			cancelUnfocus = true;
+		}, 300);
+	});
+
+	$(document).on('keydown', function(evt){
+		if(!$('#event-bar .focus').is(':focus'))return;
+		if(evt.keyCode == 46){
+			$('#event-bar .card.selected').slideUp(200, function(){
+				this.remove();
+				updateButtons();
+			});
+		}else if(evt.ctrlKey && (evt.keyCode === 65 || evt.keyCode == 97)){ // ctrl + a
+			$('#event-bar .card').toggleClass('selected', true);
+			updateButtons();
+			evt.preventDefault();
+		}
+	});
+
+	Waves.displayEffect();
+</script>

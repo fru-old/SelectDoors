@@ -1,0 +1,20 @@
+{
+  "name": "SelectDoor",
+  "main": "scaffold/node-webkit/index.html",
+  "window": {
+    "show": true,
+    "width": 800,
+    "height": 500,
+    "title": "SelectDoor Selenium Tool",
+    "toolbar": true,
+    "icon": "content/images/toolbar-icon.png",
+    "position": "center",
+    "min_width": 400,
+    "min_height": 200
+  },
+  "initial-views": [
+    "views/address-toolbar.html",
+    "views/event-rightbar.html",
+    "views/iframe.html"
+  ]
+}

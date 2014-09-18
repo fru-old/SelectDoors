@@ -1,0 +1,57 @@
+#title-bar {
+	padding: 5px;
+	padding-top: 2px;
+	padding-right: 34px;
+	background: -webkit-linear-gradient(top, #f7f7f7 , #e4e4e4);
+	background: linear-gradient(to bottom, #f7f7f7 , #e4e4e4);
+	border-bottom: 1px solid #B6BaBf;
+}
+
+#title-bar input {
+	box-sizing: border-box;
+	width: 100%;
+	border: 1px solid #c5c4c5;
+	border-top: 1px solid #a5a5a5;
+	padding: 3px 6px;
+	border-radius: 3px;
+	box-shadow: 0 1px 2px rgba(255, 255, 255, 1), inset 0 1px 1px rgba(30,30,30,0.2);
+	outline: none;
+	font-size: 14px;
+}
+
+#title-bar div.button {
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	cursor: pointer;
+	background-position: -2px -1px;
+	border-radius: 2px;
+	border: 1px solid transparent; 
+}
+
+#title-bar div.button:hover {
+	border-top: 1px solid rgba(30,30,30,0.1);
+	box-shadow: 0 1px 2px rgba(30,30,30,0.6), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+#title-bar div.button:active {
+	border: 1px solid #9f9f9f;
+	border-top: 1px solid rgba(30,30,30,0.4);
+	background-color: #bfbfbf;
+	box-shadow: none;
+	height: 26px;
+}
+
+#title-bar .menu {
+	background-image: url('../images/address-toolbar-hamburger-normal.png'); 
+}
+
+#title-bar .menu:hover {
+	background-image: url('./images/address-toolbar-hamburger-hover.png'); 
+}
+
+#title-bar .menu:active {
+	background-image: url('./images/address-toolbar-hamburger-pressed.png'); 
+}
