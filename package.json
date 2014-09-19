@@ -6,7 +6,7 @@
     "width": 800,
     "height": 500,
     "title": "SelectDoor Selenium Tool",
-    "toolbar": true,
+    "toolbar": false,
     "icon": "content/images/toolbar-icon.png",
     "position": "center",
     "min_width": 400,

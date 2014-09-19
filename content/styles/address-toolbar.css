@@ -49,9 +49,9 @@
 }
 
 #title-bar .menu:hover {
-	background-image: url('./images/address-toolbar-hamburger-hover.png'); 
-}
+	background-image: url('../images/address-toolbar-hamburger-hover.png'); 
+}.
 
 #title-bar .menu:active {
-	background-image: url('./images/address-toolbar-hamburger-pressed.png'); 
+	background-image: url('../images/address-toolbar-hamburger-pressed.png'); 
 }
